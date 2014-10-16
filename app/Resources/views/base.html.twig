@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets '../bower_components/bootstrap/dist/css/*.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <style type="text/css">
+            body {
+            }
+
+            .container-narrow {
+                margin: 0 auto;
+                max-width: 800px;
+            }
+
+            .container-narrow > hr {
+                margin: 30px 0;
+            }
+        </style>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="container-narrow">
+        <div>
+            <h3 class="muted">Stats</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-1">Period:</label>
+                    <div class="col-sm-2">
+                        <select class="form-control input-sm">
+                            <option>April, 2014</option>
+                            <option>May, 2014</option>
+                            <option>June, 2014</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="input-sm form-control btn-primary" type="submit" value="Refresh">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+        {% block body %}{% endblock %}
+    </div>
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>

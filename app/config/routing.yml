@@ -1,0 +1,3 @@
+main:
+    resource: "Ad\Controller\AdController"
+    type: annotation
